@@ -1,0 +1,28 @@
+#我所使用的学习SELENIUM的书是：《SELENIUM2自动化测试实战，基于PYTHON语言》
+#也许是由于著述的时间相对较早，所以在学习的过程中遇到了许多的代码实际上并不能实现，尤其是与126等等邮箱网站相关的自动化代码，都存在找不到相应SESSION的
+#错误提示，还有常会出现编码的错误问题。
+#为了方便以后的学习，免得再去解决一次相同的问题而浪费时间所以我将解决问题的办法写到这里
+
+1.126邮箱找不到SESSION的问题，搜索了一下STACKOVERFLOW和一些博客，发现是由于新的邮箱基本都采取了模块ID不同时间不同用户登录会自动生成，所以通过ID进行邮
+  箱的自动化登录无法实现。而通过XPATH的模式直接进行查找也达不到目的，是因为有iframe框架的限制，需要Swithto登录模块的框架再进行相应的邮箱登陆操作就可以
+  了。示例代码如下:
+
+from selenium import webdriver
+from time import sleep
+
+driver = webdriver.Chrome()
+
+driver.get("http://www.126.com")
+sleep(2)
+tframe = driver.find_element_by_id('x-URS-iframe')
+#driver.SwitchTo().DefaultContent()
+driver.switch_to.frame(tframe)
+
+driver.find_element_by_xpath("//*[@name='email']").send_keys('123')
+driver.find_element_by_xpath("//*[@name='password']").send_keys('456')
+driver.find_element_by_id('dologin').click()
+
+
+2.书中4.6节获得验证信息部分，始终报错UnicodeError
+  解决方法：输入中文时需要 u'中文
+  windowsshell运行时需解码 .encode('GBK','ignore')
