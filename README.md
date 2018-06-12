@@ -1,4 +1,1 @@
-# Selenium
-As a tester who is actually lazy, automation is like a magic box.
-I wanna learn everything about automation to simplify some repeating work.
-So i choose to embrace python and selenium.
+主要是Web自动化测试相关的代码，以及碰到的主要问题记录
