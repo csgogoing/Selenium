@@ -31,3 +31,5 @@ driver.find_element_by_id('dologin').click()
 3.an existing connection was forcibly closed by the remote host?
   solved:the FireFox is too updated
     so i change to Chrome, and its worked
+
+测试回滚
