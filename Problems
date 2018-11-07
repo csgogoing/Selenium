@@ -32,5 +32,9 @@ driver.find_element_by_id('dologin').click()
   solved:the FireFox is too updated
     so i change to Chrome, and its worked
 
+<<<<<<< HEAD
 
 第二次改变这个位置
+=======
+测试回滚
+>>>>>>> parent of ad46b50... 第二次改变，回滚第1次
